@@ -1,0 +1,44 @@
+.left_side {
+  @apply flex flex-col items-center justify-center p-7 relative;
+  border-right: 1px solid #423340;
+}
+
+.left_main::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  z-index: 20;
+  box-sizing: border-box;
+  border: 2px solid #423340;
+  background-color: #eeb391;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-45%);
+}
+
+.right_main::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 1px;
+  z-index: 20;
+  box-sizing: border-box;
+  border: 2px solid #423340;
+  background-color: #eeb391;
+  top: 50%;
+  right: 100%;
+  transform: translateX(43%);
+}
+
+.right_side {
+  @apply flex flex-col items-center justify-center p-7 relative;
+  border-left: 2px solid #423340b6;
+}
+
+.circle {
+  width: "100vh";
+  height: "100vh";
+  bottom: "50%";
+  right: "-300px";
+}

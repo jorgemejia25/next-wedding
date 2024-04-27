@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #30514a;
+  overflow-x: hidden;
+}
+
+.border-input {
+  border: 3px solid #423340a9;
+}
+
+.tracking-2 {
+  letter-spacing: 0.25rem;
+}
+
+.tracking-3 {
+  letter-spacing: 0.35rem;
+}
+
+.bg-surface {
+  background-color: #423340;
+  color: #ffedfa48;
+}
+
+.border-surface {
+  border-color: #423340;
+}
+
+.h-075 {
+  height: 0.15rem;
+  background-color: #816a7e;
+}
+
+.w-custom-frac {
+  width: 40%;
+}
