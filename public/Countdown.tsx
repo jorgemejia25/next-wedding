@@ -14,7 +14,9 @@ const Countdown = () => {
 
   return (
     <section className="py-16 flex flex-col items-center bg-custom-gold-light justify-center">
-      <p className={`${lexend.className} uppercase text-custom-gold text-sm`}>
+      <p
+        className={`${lexend.className} uppercase text-custom-gold text-sm mt-12`}
+      >
         Tiempo restante
       </p>
 

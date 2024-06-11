@@ -23,7 +23,7 @@ const buttonVariants = {
     top: -2,
     transition: {
       duration: 0.2,
-      ease: "easeInOuat",
+      ease: "easeInOut",
     },
   },
   focus: {
@@ -63,8 +63,7 @@ const Button: React.FC<ButtonProps> = ({
 
   switch (state) {
     case "primary":
-      buttonClass +=
-        "text-white bg-fuchsia-500 hover:bg-fuchsia-700 focus:ring-fuchsia-500";
+      buttonClass += "text-white bg-custom-gold  focus:ring-custom-gold";
       break;
     case "secondary":
       buttonClass +=
@@ -79,8 +78,7 @@ const Button: React.FC<ButtonProps> = ({
         "text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500";
       break;
     case "primary-light":
-      buttonClass +=
-        "text-white bg-fuchsia-400 hover:bg-fuchsia-400 focus:ring-fuchsia-400";
+      buttonClass += "text-white bg-custom-gold focus:ring-bg-custom-gold";
       break;
     case "secondary-light":
       buttonClass +=

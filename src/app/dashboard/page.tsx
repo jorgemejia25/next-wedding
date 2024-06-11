@@ -29,7 +29,7 @@ export default function Page() {
   };
 
   const copyUrlToClipboard = (id: string) => {
-    const url = `https://www.jpo-wuilleipartyinantigua.com/?id=${id}`;
+    const url = `https://www.bodaelsaydavid.com/?id=${id}`;
 
     navigator.clipboard.writeText(url);
   };

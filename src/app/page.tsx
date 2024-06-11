@@ -16,7 +16,7 @@ export default function Home() {
       <Schedule />
       <Colors />
       <Gifts />
-      {/* <Confirmation /> */}
+      <Confirmation />
       {/* <Footer /> */}
     </main>
   );

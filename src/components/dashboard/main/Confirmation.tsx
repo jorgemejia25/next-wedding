@@ -1,4 +1,4 @@
-import { Cookie, Croissant_One } from "next/font/google";
+import { Cookie, Croissant_One, Lexend, Lexend_Mega } from "next/font/google";
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -17,12 +17,12 @@ type ConfirmationFormData = {
   guests: number;
 };
 
-const Croissant = Croissant_One({
+const lexend = Lexend({
   weight: ["400"],
   subsets: ["latin"],
 });
 
-const cookie = Cookie({
+const lexendMega = Lexend_Mega({
   weight: ["400"],
   subsets: ["latin"],
 });
@@ -95,36 +95,28 @@ const Confirmation = () => {
   return (
     invitation && (
       <>
-        <section className="flex mt-5 flex-col text-center items-center justify-center relative">
-          <Title src="/title3.jpg" label="Asistencia" />
-
+        <section className="flex mt-10 flex-col text-center items-center justify-center relative">
+          <div className="border-custom-gold text-center p-2 border-y-2">
+            <p className={`${lexend.className} text-lg`}>CONFIRMA TU</p>
+            <p className={` text-5xl`}>Asistencia</p>
+          </div>
           <>
-            <div
-              className={`mt-5 mx-5 text-center max-w-md tracking-widest text-lg font-medium`}
-            >
+            <div className={`mt-10 mx-5 text-center max-w-md text-xl`}>
               Con el fin de garantizar una experiencia organizada y especial en
               nuestro día, te pedimos amablemente que confirmes tu asistencia
-              junto con tus invitados antes del 16 de octubre. <br /> <br />
-              Los niños son tan lindos, pero a veces son más lindos dormidos,
-              mientras los papás bailan toda la noche. ¡Los esperamos en nuestra
-              boda! así que buenas noches a los niños, y bienvenidos a los
-              papás.
+              junto con tus invitados.
             </div>
-            <div className="mt-8 font-semibold tracking-widest uppercase">
-              Nombre:
-            </div>
-            <div
-              className={`${cookie.className} mt-1 font-bold underline text-6xl`}
-            >
+            <div className={`${lexend.className} mt-8 text-xl`}>Nombre:</div>
+            <div className={`${lexend.className} mt-3 font-bold text-4xl`}>
               {invitation.name}
             </div>
-            <div className="mt-8 font-semibold tracking-widest uppercase">
+            <div className={`${lexend.className} mt-5 text-xl`}>
               Pases disponibles:
             </div>
-            <div className={`${cookie.className} mt-1 font-bold text-6xl`}>
+            <div className={`${lexendMega.className} mt-3 font-bold text-6xl`}>
               {invitation.guests}
             </div>
-            <div className="mt-1 font-semibold tracking-widest uppercase">
+            <div className={`${lexend.className} mt-5 text-xl`}>
               Invitados confirmados:
             </div>
             <form
@@ -183,7 +175,7 @@ const Confirmation = () => {
               onCancel={() => setIsConfirmDialogOpen(false)}
               confirmButtonLabel="Confirmar"
               cancelButtonLabel="Cancelar"
-              confirmButtonClass="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded mr-2"
+              confirmButtonClass="bg-custom-gold text-white font-bold py-2 px-4 rounded mr-2"
               isOpen={isConfirmDialogOpen}
             />
             <ConfirmDialogue
@@ -193,7 +185,7 @@ const Confirmation = () => {
               onCancel={() => setIsCancelDialogOpen(false)}
               confirmButtonLabel="Confirmar"
               cancelButtonLabel="Cancelar"
-              confirmButtonClass="bg-red-500 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded mr-2"
+              confirmButtonClass="bg-red-500 text-white font-bold py-2 px-4 rounded mr-2"
               isOpen={isCancelDialogOpen}
             />
           </>
