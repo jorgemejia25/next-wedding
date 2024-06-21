@@ -36,7 +36,7 @@ const Colors = () => {
           >
             Parroquia Santo Tomas de Aquino - Tívoli
           </div>
-          <div className="mt-2 text-3xl">5:00 PM</div>
+          <div className="mt-2 text-3xl">4:30 PM</div>
 
           <a href="https://maps.app.goo.gl/Vmik2ZdTYgjeYSD78">
             <button
@@ -67,10 +67,32 @@ const Colors = () => {
       </div>
 
       <div className="py-9 my-2 bg-custom-gold-light w-full">
-        <div className="text-center text-2xl">Color de la boda</div>
-        <div className="text-center text-4xl">Verde Esmeralda</div>
+        <div className="text-center text-2xl">Código de Vestimenta</div>
+        <div className="text-center text-5xl mt-2 font-regular">Formal</div>
 
-        <div className="mx-auto w-24 h-24 bg-custom-green mt-6 rounded-full border-custom-gold border-2"></div>
+        <div className="grid text-xl  mx-auto max-w-2xl grid-cols-2 uppercase py-7">
+          <div className="text-center p-3 pt-1">
+            <p className="mb-2">MUJERES VESTIDO LARGO</p>
+            <Image
+              src="/dress-woman.svg"
+              height={100}
+              width={100}
+              alt="Dress"
+              className="mx-auto mt-8"
+            />
+          </div>
+
+          <div className="text-center p-3 pt-1">
+            <p className="mb-2">HOMBRES TRAJE</p>
+            <Image
+              src="/dress-man.svg"
+              className="mx-auto mt-8"
+              height={100}
+              width={100}
+              alt="Suit"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="mt-6">

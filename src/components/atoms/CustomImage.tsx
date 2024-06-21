@@ -21,12 +21,7 @@ const CustomImage = ({
 }: CustomImageProps) => {
   return (
     <div className={`relative m-4 mx-10 sm:mx-24 z-10 overflow-visible`}>
-      <div
-        className={style.image}
-        style={{
-          transform: `rotate(${rotateImage || 0}deg)`,
-        }}
-      >
+      <div className={style.image} style={{}}>
         <Image
           src={src}
           height={height}
@@ -36,10 +31,11 @@ const CustomImage = ({
         />
       </div>
       <div
-        className={`absolute top-0 left-0 w-full h-full z-20 border-custom-gold `}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 border-custom-gold `}
         style={{
-          borderWidth: "2px",
-          transform: `rotate(${rotateBorder || 0}deg)`,
+          width: `95%`,
+          height: `95%`,
+          borderWidth: "4px",
         }}
       ></div>
     </div>

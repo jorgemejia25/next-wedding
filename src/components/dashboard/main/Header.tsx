@@ -2,6 +2,7 @@
 
 import { Lexend_Mega, Luxurious_Script } from "next/font/google";
 
+import Countdown from "../../../../public/Countdown";
 import React from "react";
 import styles from "./Header.module.css";
 
@@ -20,7 +21,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className="px-12 py-20 flex flex-col items-center justify-between h-full text-white">
         <div className={`${lexend.className} text-center uppercase`}>
-          <p className="text-sm mb-2">Save the Sate</p>
+          <p className="text-sm mb-2">Save the Date</p>
           <p className="text-xl">28 sept 2024</p>
         </div>
 
@@ -30,10 +31,7 @@ const Header = () => {
           <div className={`${styles.name2}`}>David</div>
         </div>
 
-        <div className={`${lexend.className} text-center uppercase`}>
-          <p className="text-lg mb-2">Hotel Real Intercontinental</p>
-          <p className="text-xl">Zona 10</p>
-        </div>
+        <Countdown />
       </div>
     </header>
   );

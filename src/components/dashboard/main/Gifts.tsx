@@ -15,22 +15,22 @@ const Gifts = () => {
       </div>
 
       <p className="mt-10 text-center text-xl max-w-md mx-auto">
-        Para tu comodidad, hemos elegido nuestros regalos en dos sitios
-        diferentes.
+        Tu presencia es nuestro mayor regalo, pero si deseas obsequiarnos algo
+        te adjuntamos algunas sugerencias.
       </p>
 
       <a href="https://www.cemaco.com/list/bodarecinospineda">
         <button
-          className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-12 ${lexend.className}`}
+          className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-10 ${lexend.className}`}
         >
-          LISTA DE CEMACO
+          Lista Casa Casa
         </button>
       </a>
-      <a href="https://www.cemaco.com/list/bodarecinospineda">
+      <a href="https://www.casacasaregalos.com/gt/users/9429/recinos-pineda#profile-registro_de_boda">
         <button
-          className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-6 ${lexend.className}`}
+          className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-8 ${lexend.className}`}
         >
-          LISTA (PENDIENTE)
+          Lista Cemaco
         </button>
       </a>
     </section>

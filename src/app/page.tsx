@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <Countdown />
       <Schedule />
       <Colors />
       <Gifts />
