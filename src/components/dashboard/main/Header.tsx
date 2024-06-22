@@ -19,7 +19,7 @@ const luxurious = Luxurious_Script({
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className="px-12 py-20 flex flex-col items-center justify-between h-full text-white">
+      <div className="px-12 py-20 flex flex-col  items-center justify-between h-full text-white">
         <div className={`${lexend.className} text-center uppercase`}>
           <p className="text-sm mb-2">Save the Date</p>
           <p className="text-xl">28 sept 2024</p>

@@ -9,7 +9,7 @@ const lexend = Lexend_Mega({
 
 const Countdown = () => {
   const { days, hours, minutes } = useCountdown({
-    targetDate: new Date("2024-9-28"),
+    targetDate: new Date("2024-09-28T00:00:00Z"),
   });
 
   return (

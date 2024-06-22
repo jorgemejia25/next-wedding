@@ -34,7 +34,7 @@ const Colors = () => {
           <div
             className={`${lexend.className} text-custom-gold mb-2 mt-5 h-auto md:h-24`}
           >
-            Parroquia Santo Tomas de Aquino - Tívoli
+            Parroquia Santo Tomás de Aquino - Tívoli
           </div>
           <div className="mt-2 text-3xl">4:30 PM</div>
 

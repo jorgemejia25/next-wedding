@@ -19,14 +19,14 @@ const Gifts = () => {
         te adjuntamos algunas sugerencias.
       </p>
 
-      <a href="https://www.cemaco.com/list/bodarecinospineda">
+      <a href="https://www.casacasaregalos.com/gt/users/9429/recinos-pineda#profile-registro_de_boda">
         <button
           className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-10 ${lexend.className}`}
         >
           Lista Casa Casa
         </button>
       </a>
-      <a href="https://www.casacasaregalos.com/gt/users/9429/recinos-pineda#profile-registro_de_boda">
+      <a href="https://www.cemaco.com/list/bodarecinospineda ">
         <button
           className={`bg-custom-gold text-white text-sm rounded-lg py-2 w-48 mt-8 ${lexend.className}`}
         >
