@@ -70,7 +70,7 @@
   background-color: white;
 }
 
-@media (max-height: 780px) {
+@media (max-height: 820px) {
   .name2::after {
     display: none;
   }
