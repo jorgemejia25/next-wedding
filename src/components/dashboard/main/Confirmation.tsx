@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 
 type ConfirmationFormData = {
   guests: number;
+  guestsNames: string[];
 };
 
 const lexend = Lexend({
@@ -33,6 +34,7 @@ const Confirmation = () => {
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [isCancelDialogOpen, setIsCancelDialogOpen] = useState(false);
   const [guests, setGuests] = useState(0);
+  const [guestsNames, setGuestsNames] = useState<string[]>([]);
 
   const currentDate = new Date();
   const eventDate = new Date("2023-10-16");
@@ -62,11 +64,13 @@ const Confirmation = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<ConfirmationFormData>();
 
   const handleFormSubmit = (data: ConfirmationFormData) => {
     setIsConfirmDialogOpen(true);
     setGuests(data.guests);
+    setGuestsNames(data.guestsNames);
   };
 
   const handleCancel = async () => {
@@ -84,13 +88,16 @@ const Confirmation = () => {
     setIsCancelDialogOpen(false);
 
     setIsConfirmDialogOpen(false);
-    await confirmData(id!, guests);
+    await confirmData(id!, guests, guestsNames.join(", "));
     setInvitation({
       ...invitation!,
       guests,
       status: Status.ACCEPTED,
+      confirmedGuests: guestsNames.join(", "),
     });
   };
+
+  const guestsCount = watch("guests", 0);
 
   return (
     invitation && (
@@ -119,6 +126,7 @@ const Confirmation = () => {
             <div className={`${lexend.className} mt-5 text-xl`}>
               Invitados confirmados:
             </div>
+
             <form
               onSubmit={handleSubmit(handleFormSubmit)}
               className="flex flex-col text-center items-center justify-center"
@@ -129,6 +137,17 @@ const Confirmation = () => {
                 className="mt-3 w-72 border-input rounded-lg p-2"
                 {...register("guests", { required: true, min: 1 })}
               />
+
+              {Array.from({ length: guestsCount }).map((_, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  placeholder={`Nombre del invitado ${index + 1}`}
+                  className="mt-3 w-72 border-input rounded-lg p-2"
+                  {...register(`guestsNames.${index}`, { required: true })}
+                />
+              ))}
+
               {errors.guests && errors.guests.type === "required" && (
                 <span className="mt-7 font-bold text-red-400 uppercase tracking-wider">
                   Por favor, marque la cantidad de invitados.
@@ -151,6 +170,7 @@ const Confirmation = () => {
                   Ya has cancelado tu asistencia.
                 </span>
               )}
+
               <Button
                 className="mt-7 w-64"
                 state="primary-light"

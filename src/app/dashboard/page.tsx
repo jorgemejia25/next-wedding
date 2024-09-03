@@ -88,6 +88,7 @@ export default function Page() {
               <th className="px-4 py-2">ID</th>
               <th className="px-4 py-2">Nombre</th>
               <th className="px-4 py-2">Invitados</th>
+              <th className="px-4 py-2">Invitados confirmados</th>
               <th className="px-4 py-2">Status</th>
               <th className="px-4 py-2">Acciones</th>
             </tr>
@@ -98,6 +99,9 @@ export default function Page() {
                 <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{invitation.name}</td>
                 <td className="border px-4 py-2">{invitation.guests}</td>
+                <td className="border px-4 py-2">
+                  {invitation.confirmedGuests}
+                </td>
                 <td className="border px-4 py-2">{invitation.status}</td>
                 <td className="border px-4 py-2">
                   <div className="flex gap-4 items-center justify-center">

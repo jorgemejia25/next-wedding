@@ -51,9 +51,10 @@ const Colors = () => {
             <Image src="/cups.svg" height={200} width={70} alt="Cups" />
           </div>
           <div
-            className={`${lexend.className} text-custom-gold  mb-2 mt-5 h-auto md:h-24`}
+            className={`${lexend.className} text-custom-gold  mb-2 mt-5 h-auto md:h-24 tracking-wider`}
           >
-            Hotel Real Intercontinental
+            Hotel Real Intercontinental <br />
+            <span className="text-sm leading-loose">Gran Salón Roble</span>
           </div>
           <div className="mt-2 text-3xl">7:00 PM</div>
           <a href="https://maps.app.goo.gl/8ijUNKdgEUYwUyf49">

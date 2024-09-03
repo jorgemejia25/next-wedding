@@ -5,4 +5,5 @@ export interface Invitation {
   name: string;
   guests: number;
   status: Status;
+  confirmedGuests: string;
 }

@@ -14,6 +14,7 @@ type FormData = {
   name: string;
   guests: number;
   status: Status;
+  confirmedGuests: string;
 };
 
 const UpdateInvitationPage = () => {
@@ -24,6 +25,7 @@ const UpdateInvitationPage = () => {
   const { register, handleSubmit, formState, setValue } = useForm<FormData>({
     defaultValues: {
       status: Status.PENDING,
+      confirmedGuests: "",
     },
   });
 
@@ -37,6 +39,7 @@ const UpdateInvitationPage = () => {
         if (invitation) {
           setValue("name", invitation.name);
           setValue("guests", invitation.guests);
+          setValue("confirmedGuests", invitation.confirmedGuests);
           setValue("status", invitation.status);
         }
       };
@@ -125,6 +128,25 @@ const UpdateInvitationPage = () => {
           </select>
           {formState.errors.status && (
             <p className="text-red-500 mt-2">El estado es requerido</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="confirmedGuests"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Invitados confirmados
+          </label>
+          <input
+            type="text"
+            id="confirmedGuests"
+            {...register("confirmedGuests", { required: false })}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          {formState.errors.confirmedGuests && (
+            <p className="text-red-500 mt-2">
+              Los invitados confirmados son requeridos
+            </p>
           )}
         </div>
         <div className="mb-4">
