@@ -39,7 +39,7 @@ const UpdateInvitationPage = () => {
         if (invitation) {
           setValue("name", invitation.name);
           setValue("guests", invitation.guests);
-          setValue("confirmedGuests", invitation.confirmedGuests);
+          setValue("confirmedGuests", invitation.confirmedGuests!);
           setValue("status", invitation.status);
         }
       };
