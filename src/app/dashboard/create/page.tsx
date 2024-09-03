@@ -11,6 +11,7 @@ type FormData = {
   name: string;
   guests: number;
   status: Status;
+  
 };
 
 const Page: React.FC = () => {
