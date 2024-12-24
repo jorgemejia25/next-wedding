@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center; /* Asegura que el texto esté centrado */
+  padding-bottom: 1rem;
+}
+
+.initials {
+  font-size: 3em;
+  font-weight: bold;
+  width: 10rem;
+  border-bottom: 1px solid #d3bfa7;
+}
+
+.date {
+  font-size: 1em;
+  margin-top: 5px;
+  display: inline-block;
+  padding-top: 5px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .footer-content {
+    font-size: 0.9rem;
+  }
+}
