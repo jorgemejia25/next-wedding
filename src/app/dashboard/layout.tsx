@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "@/components/dashboard/Loading";
+import Loading from "@/components/atoms/Loading";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 

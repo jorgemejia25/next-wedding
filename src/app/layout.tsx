@@ -1,12 +1,16 @@
 import "./globals.css";
 
-import { GFS_Didot } from "next/font/google";
+import { Abhaya_Libre } from "next/font/google";
 import type { Metadata } from "next";
 import SessionProvider from "./SessionProvider";
 
-const gfsDidot = GFS_Didot({
+// const gfsDidot = GFS_Didot({
+//   weight: ["400"],
+//   subsets: ["greek"],
+// });
+const abhayaLibre = Abhaya_Libre({
   weight: ["400"],
-  subsets: ["greek"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SessionProvider>
-        <body className={gfsDidot.className}>{children}</body>
+        <body className={`${abhayaLibre.className} text-dark-brown`}>
+          {children}
+        </body>
       </SessionProvider>
     </html>
   );

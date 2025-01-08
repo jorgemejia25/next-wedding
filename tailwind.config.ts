@@ -17,6 +17,8 @@ const config: Config = {
         "custom-gold": "#c49b64",
         "custom-gold-light": "#FEFDF9",
         "custom-green": "#30514a",
+        custom: "#ECE9DD",
+        "dark-brown": "#382E2C",
       },
     },
   },
