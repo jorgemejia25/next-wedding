@@ -6,8 +6,8 @@ import React from "react";
 const InvitationDetails: React.FC = () => {
   return (
     <>
-      <Heading level={1} className="font-regular text-2xl w-60 md:w-auto">
-        Tenemos el placer de invitarte.
+      <Heading level={1} className="font-regular text-2xl w-90 md:w-auto">
+        Queremos que nos acompañes a nuestra boda.
       </Heading>
       <Heading level={2} className="text-8xl my-9 font-regular">
         Gabriel & Joyce

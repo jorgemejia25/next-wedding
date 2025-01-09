@@ -19,6 +19,7 @@ const config: Config = {
         "custom-green": "#30514a",
         custom: "#ECE9DD",
         "dark-brown": "#382E2C",
+        "custom-bg": "#FFFDF5",
       },
     },
   },

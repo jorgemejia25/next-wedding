@@ -1,13 +1,14 @@
 import Header from "../components/organisms/Header";
 import React from "react";
-import Slider from "@/components/organisms/Slider";
+import Footer from "@/components/molecules/Footer";
+import Story from "@/components/organisms/Story";
 
 const Page = () => {
   return (
     <>
       <Header />
-
-      <Slider />
+      <Story />
+      <Footer />
     </>
   );
 };
