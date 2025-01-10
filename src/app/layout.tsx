@@ -1,49 +1,42 @@
-"use client";
-
 import "./globals.css";
 
-import React, { useEffect, useRef } from "react";
+import {
+  Abhaya_Libre,
+  Bodoni_Moda,
+  Cormorant,
+  Cormorant_Garamond,
+  Lato,
+  Lemon,
+  Quicksand,
+} from "next/font/google";
 
-import { Abhaya_Libre } from "next/font/google";
 import type { Metadata } from "next";
+import React from "react";
 import SessionProvider from "./SessionProvider";
 
 // const gfsDidot = GFS_Didot({
 //   weight: ["400"],
 //   subsets: ["greek"],
 // });
-const abhayaLibre = Abhaya_Libre({
+const abhayaLibre = Quicksand({
   weight: ["400"],
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Gabriel y Joyce",
+  description: "Invitación a la boda de Gabriel y Joyce",
+};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      const playAudio = () => {
-        audio.play().catch((error) => {
-          console.error("Error al reproducir el audio:", error);
-        });
-      };
-      document.addEventListener("click", playAudio);
-      return () => {
-        document.removeEventListener("click", playAudio);
-      };
-    }
-  }, []);
-
   return (
     <html lang="en">
       <SessionProvider>
-        <body className={`${abhayaLibre.className} text-dark-brown`}>
-          <audio ref={audioRef} src="/fondo.mp3" autoPlay loop />
+        <body className={`${abhayaLibre.className} text-dark-brown `}>
           {children}
         </body>
       </SessionProvider>

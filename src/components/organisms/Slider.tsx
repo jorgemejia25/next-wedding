@@ -2,14 +2,17 @@
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-// Import Swiper React components
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Image from "next/image";
 // import required modules
-import { EffectCards } from "swiper/modules";
 import React from "react";
+
+// Import Swiper React components
 
 export default function Slider() {
   const images = [
@@ -23,21 +26,33 @@ export default function Slider() {
   ];
 
   return (
-    <section className="p-8">
-      <Swiper
-        effect={"cards"}
-        grabCursor={true}
-        modules={[EffectCards]}
-        className="w-64 h-96 md:w-96 md:h-[520px]"
-      >
-        {images.map((image, index) => (
-          <SwiperSlide
-            key={index}
-            className="flex items-center justify-center rounded-lg bg-cover bg-center bg-no-repeat w-full h-80 overflow-hidden"
-            style={{ backgroundImage: `url(${image})` }}
-          ></SwiperSlide>
-        ))}
-      </Swiper>
-    </section>
+    <Swiper
+      style={
+        {
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        } as any
+      }
+      pagination={true}
+      modules={[Pagination, Navigation, Autoplay]}
+      navigation={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      className="w-full md:w-[800px] top-50 h-80 sm:h-[490px] md:h-[620px] relative mt-8 md:mt-0"
+    >
+      {images.map((image, index) => (
+        <SwiperSlide key={index} className="w-full h-full relative">
+          <Image
+            src={image}
+            alt="Picture of the author"
+            fill
+            style={{ objectFit: "cover" }}
+            priority
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }

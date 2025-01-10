@@ -1,3 +1,4 @@
+import { Abhaya_Libre } from "next/font/google";
 import React from "react";
 
 interface HeadingProps {
@@ -6,9 +7,15 @@ interface HeadingProps {
   children: React.ReactNode;
 }
 
+const abhayaLibre = Abhaya_Libre({
+  weight: ["400"],
+  subsets: ["latin"],
+});
 const Heading: React.FC<HeadingProps> = ({ level, className, children }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
-  return <Tag className={className}>{children}</Tag>;
+  return (
+    <Tag className={`${abhayaLibre.className} ${className}`}>{children}</Tag>
+  );
 };
 
 export default Heading;
