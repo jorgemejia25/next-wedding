@@ -1,8 +1,8 @@
-import Footer from "@/components/molecules/Footer";
 import Header from "../components/organisms/Header";
 import React from "react";
 import Schedule from "@/components/organisms/Schedule";
 import Story from "@/components/organisms/Story";
+import CTA from "@/components/organisms/CTA"; // Importa el nuevo CTA
 
 const Page = () => {
   return (
@@ -10,6 +10,7 @@ const Page = () => {
       <Header />
       <Schedule />
       <Story />
+      <CTA />
     </>
   );
 };
