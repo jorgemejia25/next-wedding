@@ -11,6 +11,7 @@ import {
 } from "next/font/google";
 
 import type { Metadata } from "next";
+import Navbar from "@/components/molecules/Navbar";
 import React from "react";
 import SessionProvider from "./SessionProvider";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <SessionProvider>
         <body className={`${abhayaLibre.className} text-dark-brown `}>
+          <Navbar />
           {children}
         </body>
       </SessionProvider>

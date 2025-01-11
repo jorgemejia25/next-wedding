@@ -40,7 +40,7 @@ export default function Slider() {
         delay: 2500,
         disableOnInteraction: false,
       }}
-      className="w-full md:w-[800px] top-50 h-80 sm:h-[490px] md:h-[620px] relative mt-8 md:mt-0"
+      className="w-full md:w-[800px] top-50 h-80 sm:h-[490px] md:h-[620px] relative mt-12 2xl:mt-0"
     >
       {images.map((image, index) => (
         <SwiperSlide key={index} className="w-full h-full relative">

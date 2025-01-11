@@ -39,7 +39,7 @@ const InvitationDetails: React.FC = () => {
           Gabriel & Joyce
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 w-screen">
+      <div className="grid grid-cols-1 2xl:grid-cols-2 w-screen">
         <div className="px-8 md:px-32">
           <p className="text-xl mb-3 md:text-2xl">Sábado 8 de marzo, 2025</p>
           <p className="text-xl md:text-2xl mb-5">Hotel Camino Real</p>

@@ -1,5 +1,6 @@
-import React from "react";
 import Heading from "../atoms/Heading";
+import Link from "next/link";
+import React from "react";
 
 const CTA: React.FC = () => {
   return (
@@ -11,17 +12,16 @@ const CTA: React.FC = () => {
         ¡Deseamos Verte!
       </Heading>
       <p className="text-lg mb-6">
-        La celebracion no sera la misma sin ti. Por favor confirma tu asistencia a través del enlace de confirmacion a continuacion.
+        La celebracion no sera la misma sin ti. Por favor confirma tu asistencia
+        a través del enlace de confirmacion a continuacion.
       </p>
-      <p className="text-base mb-6">
-        Reserva antes del 15 de febrero.
-      </p>
-      <a
-        href="#"
+      <p className="text-base mb-6">Reserva antes del 15 de febrero.</p>
+      <Link
+        href="/rsvp"
         className="inline-block text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
       >
         Asistiré!
-      </a>
+      </Link>
     </section>
   );
 };
