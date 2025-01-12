@@ -1,5 +1,6 @@
+import React, { JSX } from "react";
+
 import { Abhaya_Libre } from "next/font/google";
-import React from "react";
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
