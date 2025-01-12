@@ -7,26 +7,23 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <nav
-        className={`navbar ${
-          open ? "open" : ""
-        } flex justify-between items-center px-8 md:px-32 py-7 text-xl`}
-      >
-        <div className="logo">G&J</div>
-        {/* <button className="menu-toggle " onClick={() => setOpen(!open)}>
-          ☰
-        </button> */}
-        <ul className="flex list-none gap-6">
-          <li>
-            <Link href="/fotos">Historia</Link>
-          </li>
-          <li>
-            <Link href="/turismo">Asistencia</Link>
-          </li>
-        </ul>
-      </nav>
-    </>
+    <nav
+      className={`navbar ${
+        open ? "open" : ""
+      } flex justify-between items-center px-8 md:px-32 py-7 text-xl fixed top-0 w-full z-50 bg-white bg-opacity-90 backdrop-blur-md border-b border-white border-opacity-30`}
+    >
+      <div className="logo">
+        <Link href="/">G&C</Link>
+      </div>
+      <ul className="flex list-none gap-6">
+        <li>
+          <Link href="/#story">Historia</Link>
+        </li>
+        <li>
+          <Link href="/rsvp">Asistencia</Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

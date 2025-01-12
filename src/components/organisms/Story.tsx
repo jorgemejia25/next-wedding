@@ -1,11 +1,9 @@
 import Heading from "../atoms/Heading";
-// import Paragraph from "../atoms/Paragraph";
 import React from "react";
-import Slider from "../organisms/Slider";
 
 const Story: React.FC = () => {
   return (
-    <section className="margin-0 p-8 md:px-48 md:py-48">
+    <section id="story" className="margin-0 p-8 md:px-48 md:py-48">
       <Heading
         level={2}
         className="text-5xl md:text-6xl  font-regular mb-6 leading-snug"
