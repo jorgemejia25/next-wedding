@@ -82,9 +82,8 @@ const RSVPPage = () => {
             </Heading>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
-              deleniti doloremque autem ducimus similique distinctio suscipit
-              quasi unde debitis quisquam.
+              Gracias por considerar hacer un regalo. Si deseas hacerlo, una
+              contribución en efectivo sería muy apreciada.
             </p>
           </div>
         </div>
