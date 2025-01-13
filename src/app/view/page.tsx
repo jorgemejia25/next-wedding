@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
 import Heading from "@/components/atoms/Heading";
 import { Invitation } from "../interfaces/Invitation";
-import getInvitations from "../actions/getInvitations";
 import deleteInvitation from "../actions/deleteInvitation";
+import getInvitations from "../actions/getInvitations";
 
 const PageView = () => {
   const [invitations, setInvitations] = useState<Invitation[]>([]);
@@ -16,6 +17,8 @@ const PageView = () => {
       setInvitations(fetchedInvitations);
     })();
   }, []);
+
+
 
   const deletebutton = async (id: string, name: string) => {
     const formData = new FormData();
