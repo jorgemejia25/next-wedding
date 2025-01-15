@@ -9,10 +9,10 @@ const Schedule = () => {
           level={2}
           className="text-5xl md:text-6xl font-regular mb-2 leading-snug"
         >
-          Fecha y hora
+          Itinerario
         </Heading>
         <p className="text-xl font-regular  mb-6">
-          18:00hrs, sábado 8 de marzo de 2025
+          Fecha: Sábado 8 de marzo de 2025
         </p>
         <a
           href="https://calendar.app.google/QLLh7Wxrafma5aQw8"
@@ -20,6 +20,18 @@ const Schedule = () => {
         >
           Agregar al calendario
         </a>
+
+        <ul>
+          <li className="text-xl font-regular mb-6">
+            <strong>Boda Civil: &nbsp;</strong>
+            18:00 hrs
+          </li>
+          <li className="text-xl font-regular mb-6">
+            <strong>Recepción: &nbsp;</strong>
+            19:00 hrs
+          </li>
+        </ul>
+
         <Heading
           level={2}
           className="text-5xl md:text-6xl font-regular mb-2 leading-snug"
@@ -30,7 +42,7 @@ const Schedule = () => {
           Hotel Camino Real, Salón La Ronda y Terraza
         </p>
         <a
-          href="https://www.marriott.com/es/hotels/guawi-the-westin-camino-real-guatemala/overview/"
+          href="https://www.marriott.com/es/event-reservations/reservation-link.mi?id=1734448209357&key=GRP&guestreslink2=true&app=resvlink"
           className="underline block mb-6 md:text-xl"
         >
           Reservar habitación
