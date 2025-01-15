@@ -12,7 +12,19 @@ const RSVPPage = () => {
 
   return (
     <main className="p-8 w-full mx-auto max-w-6xl pt-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
+        <div className="md:order-last">
+          <div className="p-8 border border-stone-200 md:w-2/3">
+            <Heading level={3} className="text-5xl font-regular mb-4">
+              Regalos
+            </Heading>
+
+            <p className="text-xl">
+              Gracias por considerar hacer un regalo. Si deseas hacerlo, una
+              contribución en efectivo sería muy apreciada.
+            </p>
+          </div>
+        </div>
         <div className="md:px-20">
           <Heading level={2} className="text-5xl md:text-6xl font-regular mb-4">
             Confirma tu asistencia.
@@ -73,19 +85,6 @@ const RSVPPage = () => {
               Enviar
             </button>
           </form>
-        </div>
-
-        <div>
-          <div className="p-8 border border-stone-200 md:w-2/3">
-            <Heading level={3} className="text-3xl font-regular mb-4">
-              Regalos
-            </Heading>
-
-            <p>
-              Gracias por considerar hacer un regalo. Si deseas hacerlo, una
-              contribución en efectivo sería muy apreciada.
-            </p>
-          </div>
         </div>
       </div>
     </main>

@@ -43,12 +43,14 @@ const InvitationDetails: React.FC = () => {
         <div className="px-8 md:px-32">
           <p className="text-xl mb-3 md:text-2xl">Sábado 8 de marzo, 2025</p>
           <p className="text-xl md:text-2xl mb-5">Hotel Camino Real</p>
-          <Button
-            className="mt-3 text-lg md:text-xl py-2 px-6 md:py-4 border border-dark-brown rounded-full"
-            href="/rsvp"
-          >
-            Asistencia
-          </Button>
+          <div className="mt-10">
+            <Button
+              className="mt-3 text-lg md:text-xl py-2 px-6 md:py-4 border border-dark-brown rounded-full"
+              href="/rsvp"
+            >
+              Asistencia
+            </Button>
+          </div>
         </div>
 
         <Slider />

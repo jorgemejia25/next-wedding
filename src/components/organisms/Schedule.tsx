@@ -42,16 +42,15 @@ const Schedule = () => {
           Hotel Camino Real, Salón La Ronda y Terraza
         </p>
         <a
-          href="https://www.marriott.com/es/event-reservations/reservation-link.mi?id=1734448209357&key=GRP&guestreslink2=true&app=resvlink"
-          className="underline block mb-6 md:text-xl"
-        >
-          Reservar habitación
-        </a>
-        <a
           href="https://ul.waze.com/ul?ll=14.59777475%2C-90.51616625&navigate=yes&zoom=17&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
           className="underline block mb-6 md:text-xl"
         >
           Abrir en Waze
+        </a>
+        <a href="https://www.marriott.com/es/event-reservations/reservation-link.mi?id=1734448209357&key=GRP&guestreslink2=true&app=resvlink">
+          <button className="text-lg md:text-xl py-2 px-6 md:py-4 border border-dark-brown rounded-full">
+            Reservar habitación
+          </button>
         </a>
       </div>
     </section>
