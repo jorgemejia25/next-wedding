@@ -1,3 +1,5 @@
+"use client";
+
 import Heading from "../atoms/Heading";
 import Link from "next/link";
 import React from "react";
