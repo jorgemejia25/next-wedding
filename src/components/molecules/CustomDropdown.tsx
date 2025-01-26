@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion, useAnimation, useCycle } from "framer-motion";
 
 interface Option {
   value: string;
@@ -20,14 +19,8 @@ const CustomDropdown: React.FC<Props> = ({
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
 
-  const controls = useAnimation();
-  const [x, cycleX] = useCycle("-100%", "0%");
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-
-    controls.start(isOpen ? "closed" : "open");
-    cycleX();
   };
 
   const handleSelect = (option: Option) => {
@@ -46,26 +39,19 @@ const CustomDropdown: React.FC<Props> = ({
       >
         {selectedOption ? selectedOption.label : "Select an option"}
       </button>
-      <motion.ul
-        className="absolute z-50 mt-1 w-full bg-white rounded-md shadow-lg max-h-56 overflow-y-auto"
-        tabIndex={-1}
-        role="menu"
-        aria-orientation="vertical"
-        aria-labelledby="options-menu"
-        animate={controls}
-        variants={{
-          open: { opacity: 1, y: "0%" },
-          closed: { opacity: 0, y: x },
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        {isOpen &&
-          options.map((option) => (
-            <motion.li
+      {isOpen && (
+        <ul
+          className="absolute z-50 mt-1 w-full bg-white rounded-md shadow-lg max-h-56 overflow-y-auto"
+          tabIndex={-1}
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="options-menu"
+        >
+          {options.map((option) => (
+            <li
               key={option.value}
               className="text-gray-900 cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-gray-50"
               onClick={() => handleSelect(option)}
-              whileHover={{ backgroundColor: "#f5f5f5" }}
             >
               <span className="block truncate">{option.label}</span>
               {selectedOption?.value === option.value && (
@@ -85,9 +71,10 @@ const CustomDropdown: React.FC<Props> = ({
                   </svg>
                 </span>
               )}
-            </motion.li>
+            </li>
           ))}
-      </motion.ul>
+        </ul>
+      )}
     </div>
   );
 };
