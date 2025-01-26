@@ -72,71 +72,78 @@ const RSVPPage = () => {
               </p>
             </div>
           </div>
-          <div className="md:px-20">
-            <Heading level={2} className="text-5xl md:text-6xl font-regular mb-4">
-              Confirma tu asistencia.
-            </Heading>
-            <p className="text-xl font-regular mb-6">
-              Invitado: {invitation?.name}
-            </p>
-            <form action={formAction} onSubmit={handleSubmit}>
-              <input type="hidden" name="docId" value={invitation?.id} />
-              <div className="flex gap-4">
-                <div className="flex gap-4 items-center justify-center">
-                  <input
-                    type="radio"
-                    id="confirm"
-                    value="true"
-                    name="confirmation"
-                  />
-                  <label htmlFor="confirm" className="text-lg">
-                    Asistiré
-                  </label>
-                </div>
-                <div className="flex gap-4 items-center justify-center">
-                  <input
-                    type="radio"
-                    id="reject"
-                    value="false"
-                    name="confirmation"
-                  />
-                  <label htmlFor="reject" className="text-lg">
-                    No asistiré
-                  </label>
-                </div>
-              </div>
-              <div className="mt-8 flex flex-col gap-4">
-                <label htmlFor="guests" className="text-lg">
-                  Número de invitados
-                </label>
-                <input
-                  type="number"
-                  id="guests"
-                  name="guests"
-                  value={guests ?? ""}
-                  onChange={handleGuestsChange}
-                  className="border border-dark-brown rounded-md p-2"
-                />
-              </div>
-              {error && <p className="text-red-500 text-center mt-6">{error}</p>}
-              {state.status === 400 && (
-                <p className="text-red-500 text-center mt-6">
-                  Por favor, completa todos los campos.
-                </p>
-              )}
-              {state.status === 200 && (
-                <p className="text-green-500 text-center mt-6">
-                  ¡Gracias por confirmar tu asistencia!
-                </p>
-              )}
-              <button
-                type="submit"
-                className="inline-block mt-12 w-full text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
+          {invitation && (
+            <div className="md:px-20">
+              <Heading
+                level={2}
+                className="text-5xl md:text-6xl font-regular mb-4"
               >
-                Enviar
-              </button>
-            </form>
-          </div>
+                Confirma tu asistencia.
+              </Heading>
+              <p className="text-xl font-regular mb-6">
+                Invitado: {invitation?.name}
+              </p>
+              <form action={formAction} onSubmit={handleSubmit}>
+                <input type="hidden" name="docId" value={invitation?.id} />
+                <div className="flex gap-4">
+                  <div className="flex gap-4 items-center justify-center">
+                    <input
+                      type="radio"
+                      id="confirm"
+                      value="true"
+                      name="confirmation"
+                    />
+                    <label htmlFor="confirm" className="text-lg">
+                      Asistiré
+                    </label>
+                  </div>
+                  <div className="flex gap-4 items-center justify-center">
+                    <input
+                      type="radio"
+                      id="reject"
+                      value="false"
+                      name="confirmation"
+                    />
+                    <label htmlFor="reject" className="text-lg">
+                      No asistiré
+                    </label>
+                  </div>
+                </div>
+                <div className="mt-8 flex flex-col gap-4">
+                  <label htmlFor="guests" className="text-lg">
+                    Número de invitados
+                  </label>
+                  <input
+                    type="number"
+                    id="guests"
+                    name="guests"
+                    value={guests ?? ""}
+                    onChange={handleGuestsChange}
+                    className="border border-dark-brown rounded-md p-2"
+                  />
+                </div>
+                {error && (
+                  <p className="text-red-500 text-center mt-6">{error}</p>
+                )}
+                {state.status === 400 && (
+                  <p className="text-red-500 text-center mt-6">
+                    Por favor, completa todos los campos.
+                  </p>
+                )}
+                {state.status === 200 && (
+                  <p className="text-green-500 text-center mt-6">
+                    ¡Gracias por confirmar tu asistencia!
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  className="inline-block mt-12 w-full text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
+                >
+                  Enviar
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </main>
     </Suspense>
