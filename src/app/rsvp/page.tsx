@@ -1,14 +1,51 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+
 import Heading from "@/components/atoms/Heading";
-import React from "react";
+import { Invitation } from "../interfaces/Invitation";
 import addInvitation from "../actions/addInvitation";
+import findInvitation from "../actions/findInvitation";
 import { useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const RSVPPage = () => {
   const [state, formAction] = useActionState(addInvitation, {
     status: 0,
   });
+
+  const [invitation, setInvitation] = useState<Invitation | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [guests, setGuests] = useState<number | undefined>(undefined);
+  const searchParams = useSearchParams();
+  const invitationId = searchParams.get("id");
+
+  useEffect(() => {
+    const fetchInvitation = async () => {
+      if (invitationId) {
+        const invitation = await findInvitation(invitationId);
+        setInvitation(invitation);
+      }
+    };
+
+    fetchInvitation();
+  }, [invitationId]);
+
+  const handleGuestsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGuests(parseInt(event.target.value, 10));
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    const guests = parseInt(formData.get("guests") as string, 10);
+
+    if (guests > (invitation?.guests || 0)) {
+      event.preventDefault();
+      setError(`El número máximo de invitados es ${invitation?.guests}`);
+    } else {
+      setError(null);
+    }
+  };
 
   return (
     <main className="p-8 w-full mx-auto max-w-6xl pt-32">
@@ -19,9 +56,18 @@ const RSVPPage = () => {
               Regalos
             </Heading>
 
-            <p className="text-xl">
+            <p className="text-lg">
               Gracias por considerar hacer un regalo. Si deseas hacerlo, una
               contribución en efectivo sería muy apreciada.
+            </p>
+            <p className="text-lg mt-4">
+              Datos bancarios para transferencias:
+              <br />
+              Banco: BAC
+              <br />
+              Cuenta de ahorros: 966900243
+              <br />
+              Titular: César Gabriel González Carranza
             </p>
           </div>
         </div>
@@ -30,9 +76,10 @@ const RSVPPage = () => {
             Confirma tu asistencia.
           </Heading>
           <p className="text-xl font-regular mb-6">
-            Por favor, confirma tu asistencia antes del 15 de febrero.
+            Invitado: {invitation?.name}
           </p>
-          <form action={formAction}>
+          <form action={formAction} onSubmit={handleSubmit}>
+            <input type="hidden" name="docId" value={invitation?.id} />
             <div className="flex gap-4">
               <div className="flex gap-4 items-center justify-center">
                 <input
@@ -58,18 +105,21 @@ const RSVPPage = () => {
               </div>
             </div>
             <div className="mt-8 flex flex-col gap-4">
-              <label htmlFor="name" className="text-lg">
-                Nombre completo
+              <label htmlFor="guests" className="text-lg">
+                Número de invitados
               </label>
               <input
-                type="text"
-                id="name"
-                name="name"
+                type="number"
+                id="guests"
+                name="guests"
+                value={guests ?? ""}
+                onChange={handleGuestsChange}
                 className="border border-dark-brown rounded-md p-2"
               />
             </div>
+            {error && <p className="text-red-500 text-center mt-6">{error}</p>}
             {state.status === 400 && (
-              <p className="text-red-500  text-center mt-6">
+              <p className="text-red-500 text-center mt-6">
                 Por favor, completa todos los campos.
               </p>
             )}

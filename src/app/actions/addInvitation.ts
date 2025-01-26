@@ -1,7 +1,6 @@
 "use server";
 
-import { Invitation } from "../interfaces/Invitation";
-import { addData } from "@/firebase/addData";
+import { confirmData } from "@/firebase/confirmData";
 
 const addInvitation = async (
   _: {
@@ -9,20 +8,20 @@ const addInvitation = async (
   },
   formData: FormData
 ) => {
-  const name = formData.get("name") as string;
-
+  const guests = +formData.get("guests")!;
   const confirmation = formData.get("confirmation") === "true";
-  const invitation: Invitation = { name, confirmation };
+  const docId = formData.get("docId") as string;
 
-  if (name === "" || formData.get("confirmation") === null) {
+  if (formData.get("confirmation") === null || isNaN(guests)) {
     return {
       status: 400,
     };
   }
 
-  const createdInvitation = await addData(invitation);
+  console.log(guests);
+  console.log(confirmation);
 
-  console.log(createdInvitation);
+  await confirmData(docId, guests, confirmation);
 
   return {
     status: 200,

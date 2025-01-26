@@ -1,4 +1,5 @@
 import CTA from "@/components/organisms/CTA"; // Importa el nuevo CTA
+import Countdown from "@/components/organisms/Countdown"; // Importa el nuevo Countdown
 import Header from "../components/organisms/Header";
 import Intro from "@/components/organisms/Intro";
 import React from "react";
@@ -10,6 +11,7 @@ const Page = () => {
     <>
       <Intro />
       <Header />
+
       <Schedule />
       <Story />
       <CTA />

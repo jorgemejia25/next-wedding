@@ -1,3 +1,4 @@
+import Countdown from "./Countdown";
 import Heading from "../atoms/Heading";
 import React from "react";
 
@@ -14,6 +15,7 @@ const Schedule = () => {
         <p className="text-xl font-regular  mb-6">
           Fecha: Sábado 8 de marzo de 2025
         </p>
+
         <a
           href="https://calendar.app.google/QLLh7Wxrafma5aQw8"
           className="underline md:text-xl block mb-6"
@@ -32,9 +34,11 @@ const Schedule = () => {
           </li>
         </ul>
 
+        <Countdown />
+
         <Heading
           level={2}
-          className="text-5xl md:text-6xl font-regular mb-2 leading-snug"
+          className="text-5xl md:text-6xl font-regular mt-12 mb-2 leading-snug"
         >
           Lugar
         </Heading>
@@ -52,6 +56,14 @@ const Schedule = () => {
             Reservar habitación
           </button>
         </a>
+
+        <Heading
+          level={2}
+          className="text-3xl md:text-4xl font-regular mt-12 mb-2 leading-snug"
+        >
+          Código de Vestimenta
+        </Heading>
+        <p className="text-xl font-regular mb-6">Formal (no fuscia)</p>
       </div>
     </section>
   );

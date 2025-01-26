@@ -1,10 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
 
   return (
     <nav
@@ -20,7 +24,7 @@ const Navbar = () => {
           <Link href="/#story">Historia</Link>
         </li>
         <li>
-          <Link href="/rsvp">Asistencia</Link>
+          <Link href={`/rsvp?id=${id}`}>Asistencia</Link>
         </li>
       </ul>
     </nav>

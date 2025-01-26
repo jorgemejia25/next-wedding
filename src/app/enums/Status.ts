@@ -1,6 +1,6 @@
 export enum Status {
   ALL = "",
-  ACCEPTED = "accepted",
-  DECLINED = "declined",
-  PENDING = "pending",
+  ACCEPTED = "Confirmado",
+  DECLINED = "Rechazado",
+  PENDING = "Pendiente",
 }

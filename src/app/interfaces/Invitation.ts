@@ -1,5 +1,9 @@
+import { Status } from "../enums/Status";
+
 export interface Invitation {
   id?: string;
   name: string;
-  confirmation: boolean;
+  guests: number;
+  status: Status;
+  confirmedGuests?: number;
 }
