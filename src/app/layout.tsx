@@ -9,10 +9,10 @@ import {
   Lemon,
   Quicksand,
 } from "next/font/google";
+import React, { Suspense } from "react";
 
 import type { Metadata } from "next";
 import Navbar from "@/components/molecules/Navbar";
-import React from "react";
 import SessionProvider from "./SessionProvider";
 
 // const gfsDidot = GFS_Didot({
@@ -38,7 +38,9 @@ export default function RootLayout({
     <html lang="en">
       <SessionProvider>
         <body className={`${abhayaLibre.className} text-dark-brown `}>
-          <Navbar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Navbar />
+          </Suspense>
           {children}
         </body>
       </SessionProvider>
