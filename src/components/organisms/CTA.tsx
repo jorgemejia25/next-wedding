@@ -1,8 +1,12 @@
 import Heading from "../atoms/Heading";
 import Link from "next/link";
 import React from "react";
+import { useSearchParams } from "next/navigation";
 
 const CTA: React.FC = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+
   return (
     <section className="bg-custom-bg p-8 md:px-48 md:py-24 text-center">
       <Heading
@@ -17,10 +21,10 @@ const CTA: React.FC = () => {
       </p>
       <p className="text-base mb-6">Reserva antes del 15 de febrero.</p>
       <Link
-        href="/rsvp"
+        href={`/rsvp?id=${id}`}
         className="inline-block text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
       >
-        Asistiré!
+        ¡Asistiré!
       </Link>
     </section>
   );
