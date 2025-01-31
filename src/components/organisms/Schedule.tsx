@@ -15,14 +15,12 @@ const Schedule = () => {
         <p className="text-xl font-regular  mb-6">
           Fecha: Sábado 8 de marzo de 2025
         </p>
-
         <a
           href="https://calendar.app.google/QLLh7Wxrafma5aQw8"
           className="underline md:text-xl block mb-6"
         >
           Agregar al calendario
         </a>
-
         <ul>
           <li className="text-xl font-regular mb-6">
             <strong>Boda Civil: &nbsp;</strong>
@@ -33,9 +31,7 @@ const Schedule = () => {
             19:00 hrs
           </li>
         </ul>
-
         <Countdown />
-
         <Heading
           level={2}
           className="text-5xl md:text-6xl font-regular mt-12 mb-2 leading-snug"
@@ -56,14 +52,22 @@ const Schedule = () => {
             Reservar habitación
           </button>
         </a>
-
         <Heading
           level={2}
-          className="text-3xl md:text-4xl font-regular mt-12 mb-2 leading-snug"
+          className="text-5xl md:text-6xl font-regular mt-12 mb-2 leading-snug"
         >
           Código de Vestimenta
         </Heading>
-        <p className="text-xl font-regular mb-6">Formal (no fuscia)</p>
+        <p className="text-lg font-regular mb-6">
+          Queremos que cada uno de ustedes se sienta especial y luzca
+          espectacular en nuestro día.
+        </p>
+        <div className="text-3xl font-medium">Caballeros</div>
+        <p className="mt-2 text-lg">Traje formal</p>
+        <div className="text-3xl font-medium mt-6">Damas</div>
+        <p className="mt-2 text-lg">Traje de noche</p>
+
+        <p className="mt-8">Evitar el color fuscia</p>
       </div>
     </section>
   );

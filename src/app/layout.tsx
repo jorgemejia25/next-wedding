@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   description: "Invitación a la boda de Gabriel y Joyce",
 };
 
+
+
 export default function RootLayout({
   children,
 }: {

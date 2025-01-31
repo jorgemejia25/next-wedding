@@ -5,6 +5,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import Heading from "@/components/atoms/Heading";
 import { Invitation } from "../interfaces/Invitation";
 import addInvitation from "../actions/addInvitation";
+import addTextToPNG from "../actions/addTextToPNG"; // Importar la acción
 import findInvitation from "../actions/findInvitation";
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -47,6 +48,13 @@ const RSVPPage = () => {
     }
   };
 
+  const handleDownloadPDF = async () => {
+    if (invitation) {
+      const pdfPath = await addTextToPNG(invitation.name);
+      window.open(pdfPath, "_blank");
+    }
+  };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <main className="p-8 w-full mx-auto max-w-6xl pt-32">
@@ -58,12 +66,11 @@ const RSVPPage = () => {
               </Heading>
 
               <p className="text-lg">
-                Gracias por considerar hacer un regalo. Si deseas hacerlo, una
-                contribución en efectivo sería muy apreciada.
+                Tu presencia es nuestro mejor regalo. Si deseas contribuir de
+                otra manera, puedes realizar una aportación en sobre o por medio
+                de transferencia a la siguiente cuenta:
               </p>
               <p className="text-lg mt-4">
-                Datos bancarios para transferencias:
-                <br />
                 Banco: BAC
                 <br />
                 Cuenta de ahorros: 966900243
@@ -142,6 +149,12 @@ const RSVPPage = () => {
                   Enviar
                 </button>
               </form>
+              <button
+                onClick={handleDownloadPDF}
+                className="inline-block mt-4 w-full text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
+              >
+                Descargar PDF
+              </button>
             </div>
           )}
         </div>

@@ -8,6 +8,7 @@ import { FiCopy } from "react-icons/fi";
 import { Invitation } from "../interfaces/Invitation";
 import Link from "next/link";
 import { Status } from "../enums/Status";
+import addTextToPNG from "../actions/addTextToPNG"; // Importar la acción
 import { findData } from "@/firebase/findData";
 
 export default function Page() {
@@ -27,10 +28,24 @@ export default function Page() {
     setSearchText(event.target.value);
   };
 
-  const copyUrlToClipboard = (id: string) => {
-    const url = `https://www.gabrielyjoyce.com/?id=${id}`;
+  const copyUrlToClipboard = (id: string, name: string) => {
+    const url = `Estimad@: ${name} 
+    
+Tenemos el honor de invitarte a nuestra boda el día 8 de marzo de 2025. Nos tomamos el tiempo para compartirte un enlace para que puedas confirmar tu asistencia.
+    
+https://www.gabrielyjoyce.com/?id=${id}`;
 
     navigator.clipboard.writeText(url);
+  };
+
+  const handleDownloadPNG = async (name: string) => {
+    const pngPath = await addTextToPNG(name);
+    const link = document.createElement("a");
+    link.href = pngPath;
+    link.download = `${name}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -120,18 +135,19 @@ export default function Page() {
                         Ver
                       </button>
                     </Link>
-                    {/* <Button
-                      onClick={() => copyUrlToClipboard(invitation.id!)}
-                      rounded="full"
-                      state="secondary-light"
-                    >
-                      <FiCopy />
-                    </Button> */}
                     <button
-                      onClick={() => copyUrlToClipboard(invitation.id!)}
+                      onClick={() =>
+                        copyUrlToClipboard(invitation.id!, invitation.name)
+                      }
                       className="px-3 py-2 bg-teal-800 text-white font-bold rounded-full"
                     >
                       Copiar
+                    </button>
+                    <button
+                      onClick={() => handleDownloadPNG(invitation.name)}
+                      className="px-3 py-2 bg-teal-800 text-white font-bold rounded-full"
+                    >
+                      PNG
                     </button>
                   </div>
                 </td>
