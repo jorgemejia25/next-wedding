@@ -7,7 +7,7 @@ import path from "path";
 
 const addTextToPNG = async (text: string) => {
   try {
-    const baseImagePath = path.join(process.cwd(), "public", "base.png");
+    const baseImagePath = "base.png";
     const outputPath = path.join("/tmp", `${text}.png`);
 
     const image = await loadImage(baseImagePath);
