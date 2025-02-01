@@ -7,10 +7,10 @@ import path from "path";
 
 const addTextToPNG = async (text: string) => {
   try {
-    const baseImagePath = "base.png";
+    const baseImageUrl = "https://www.gabrielyjoyce.com/base.png"; // URL de la imagen base
     const outputPath = path.join("/tmp", `${text}.png`);
 
-    const image = await loadImage(baseImagePath);
+    const image = await loadImage(baseImageUrl);
     const canvas = createCanvas(image.width, image.height);
     const ctx = canvas.getContext("2d");
 
