@@ -41,7 +41,7 @@ https://www.gabrielyjoyce.com/?id=${id}`;
   const handleDownloadPNG = async (name: string) => {
     const pngPath = await addTextToPNG(name);
     const link = document.createElement("a");
-    link.href = pngPath;
+    link.href = pngPath.replace("/tmp", "");
     link.download = `${name}.png`;
     document.body.appendChild(link);
     link.click();
