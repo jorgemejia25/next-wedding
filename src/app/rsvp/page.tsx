@@ -48,12 +48,6 @@ const RSVPPage = () => {
     }
   };
 
-  const handleDownloadPDF = async () => {
-    if (invitation) {
-      const pdfPath = await addTextToPNG(invitation.name);
-      window.open(pdfPath, "_blank");
-    }
-  };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -149,12 +143,7 @@ const RSVPPage = () => {
                   Enviar
                 </button>
               </form>
-              <button
-                onClick={handleDownloadPDF}
-                className="inline-block mt-4 w-full text-base md:text-lg py-4 px-6 border border-dark-brown rounded-full text-dark-brown bg-white hover:bg-dark-brown hover:text-white transition-all"
-              >
-                Descargar PDF
-              </button>
+
             </div>
           )}
         </div>

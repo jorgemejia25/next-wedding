@@ -40,7 +40,7 @@ https://www.gabrielyjoyce.com/?id=${id}`;
 
   const handleDownloadPNG = async (name: string) => {
     const buffer = await addTextToPNG(name);
-    const blob = new Blob([buffer], { type: "image/png" });
+    const blob = new Blob([buffer] as any, { type: "image/png" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
