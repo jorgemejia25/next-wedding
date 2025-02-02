@@ -48,7 +48,6 @@ const RSVPPage = () => {
     }
   };
 
-
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <main className="p-8 w-full mx-auto max-w-6xl pt-32">
@@ -84,6 +83,9 @@ const RSVPPage = () => {
               <p className="text-xl font-regular mb-6">
                 Invitado: {invitation?.name}
               </p>
+              <p className="text-xl font-regular mb-6">
+                Acompañantes: {invitation?.guests}
+              </p>
               <form action={formAction} onSubmit={handleSubmit}>
                 <input type="hidden" name="docId" value={invitation?.id} />
                 <div className="flex gap-4">
@@ -112,7 +114,7 @@ const RSVPPage = () => {
                 </div>
                 <div className="mt-8 flex flex-col gap-4">
                   <label htmlFor="guests" className="text-lg">
-                    Número de invitados
+                    Acompañantes confirmados
                   </label>
                   <input
                     type="number"
@@ -143,7 +145,6 @@ const RSVPPage = () => {
                   Enviar
                 </button>
               </form>
-
             </div>
           )}
         </div>
