@@ -39,13 +39,16 @@ https://www.gabrielyjoyce.com/?id=${id}`;
   };
 
   const handleDownloadPNG = async (name: string) => {
-    const pngPath = await addTextToPNG(name);
+    const buffer = await addTextToPNG(name);
+    const blob = new Blob([buffer], { type: "image/png" });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.href = pngPath.replace("/tmp", "");
+    link.href = url;
     link.download = `${name}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   return (

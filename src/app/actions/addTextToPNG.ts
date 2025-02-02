@@ -8,7 +8,6 @@ import path from "path";
 const addTextToPNG = async (text: string) => {
   try {
     const baseImageUrl = "https://www.gabrielyjoyce.com/base.png"; // URL de la imagen base
-    const outputPath = path.join("/tmp", `${text}.png`);
 
     const image = await loadImage(baseImageUrl);
     const canvas = createCanvas(image.width, image.height);
@@ -23,9 +22,7 @@ const addTextToPNG = async (text: string) => {
     ctx.fillText(text, canvas.width / 2, canvas.height / 2 + 50);
 
     const buffer = canvas.toBuffer("image/png");
-    fs.writeFileSync(outputPath, new Uint8Array(buffer));
-
-    return `/tmp/${text}.png`;
+    return buffer;
   } catch (error) {
     console.error("Error al modificar PNG:", error);
     throw error;
