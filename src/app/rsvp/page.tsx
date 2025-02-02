@@ -17,7 +17,7 @@ const RSVPPage = () => {
 
   const [invitation, setInvitation] = useState<Invitation | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [guests, setGuests] = useState<number | undefined>(undefined);
+  const [guests, setGuests] = useState<number | undefined>(1);
   const searchParams = useSearchParams();
   const invitationId = searchParams.get("id");
 
@@ -119,7 +119,7 @@ const RSVPPage = () => {
                 </div>
                 <div className="mt-8 flex flex-col gap-4">
                   <label htmlFor="guests" className="text-lg">
-                    Acompañantes confirmados
+                    Miembros del nucleo famiiar
                   </label>
                   <input
                     type="number"
