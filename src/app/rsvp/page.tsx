@@ -43,6 +43,9 @@ const RSVPPage = () => {
     if (guests > (invitation?.guests || 0)) {
       event.preventDefault();
       setError(`El número máximo de invitados es ${invitation?.guests}`);
+    } else if (guests <= 0) {
+      event.preventDefault();
+      setError("El número de invitados debe ser mayor que 0");
     } else {
       setError(null);
     }
@@ -84,7 +87,7 @@ const RSVPPage = () => {
                 Invitado: {invitation?.name}
               </p>
               <p className="text-xl font-regular mb-6">
-                Acompañantes: {invitation?.guests}
+                Miembros de nucleo familiar: {invitation?.guests}
               </p>
               <form action={formAction} onSubmit={handleSubmit}>
                 <input type="hidden" name="docId" value={invitation?.id} />
@@ -95,6 +98,7 @@ const RSVPPage = () => {
                       id="confirm"
                       value="true"
                       name="confirmation"
+                      required
                     />
                     <label htmlFor="confirm" className="text-lg">
                       Asistiré
@@ -106,6 +110,7 @@ const RSVPPage = () => {
                       id="reject"
                       value="false"
                       name="confirmation"
+                      required
                     />
                     <label htmlFor="reject" className="text-lg">
                       No asistiré
@@ -123,6 +128,8 @@ const RSVPPage = () => {
                     value={guests ?? ""}
                     onChange={handleGuestsChange}
                     className="border border-dark-brown rounded-md p-2"
+                    required
+                    min="1"
                   />
                 </div>
                 {error && (
